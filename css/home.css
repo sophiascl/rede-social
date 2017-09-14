@@ -1,0 +1,17 @@
+.imgPerfil{
+	border-radius: 50px; 
+	position: absolute;
+	bottom:  40px;
+	width: 15%;
+	right: 900px;
+}
+body{
+	/*width: 80%;*/
+	position: relative;
+	background-image: url("https://lh6.googleusercontent.com/-pTq711KWJ1s/UMS3PfmIlpI/AAAAAAAAAZU/woaivd3QgHw/s320/tulla-o.gif"); 
+	background-size: 100%;
+}
+li{
+	display: inline;
+	margin-right: 50px;
+}

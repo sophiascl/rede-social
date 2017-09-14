@@ -1,41 +1,30 @@
 <?php
-	function comecar_sessao(){
-		session_start();
-	}
-
-	function logIn($usuario){
-		$_SESSION['usuario'] = $usuario;
-	}
-	function logOut(){
-		unset($_SESSION['usuario']);
-	}
+	require_once "funcoes.php";
 
 	comecar_sessao();
   
 	if(isset($_POST['userName']) && isset($_POST['password'])){
 
-		if($_POST['userName']=='Root' && $_POST['password']=='root'){
+		if($_POST['userName']=='Root' && $_POST['password']=='root' && !(empty($_POST['password'])) ){
 	
-		$u=[];
-		$u['userName']= 'Root';
-		$u['snome']= 'Silva';
-		$u['sexo']= 'F';
-		$u['email']= 'root@root.com';
-		$u['nomeUsuario']= 'Root';
-		$u['password']= 'root';
+			$u=[];
+			$u['nome']= 'Root';
+			$u['snome']= 'Silva';
+			$u['sexo']= 'F';
+			$u['email']= 'root@root.com';
+			$u['userName']= 'Root';
+			header('Location:home.php'); //criar uma página Home(para mostrar as informações do usuário).
+			echo 'sucesso';
+			logIn($u);
+			var_dump($_SESSION);
+				
+			}
+			else if($_POST['userName']!='Root' || $_POST['password']!='root'){
+				header('Location:erro.php');
 
-		logIn($u);
-		if(!empty($_POST['password']))
-		var_dump($_SESSION);
-		echo 'sucesso';
-		//header('Location:index.html'); //criar uma página Home(para mostrar as informações do usuário).
-
-		}else {
-			header('Location:erro.php');
 		}
-
-		
 	}
+	
 
 	
 
